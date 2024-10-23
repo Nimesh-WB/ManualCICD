@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: manualcicd-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: manualcicd
+  template:
+    metadata:
+      labels:
+        app: manualcicd
+    spec:
+      containers:
+      - name: manualcicd-container
+        image: jnims07/manualcicd:latest
+        ports:
+        - containerPort: 80
